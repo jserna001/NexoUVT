@@ -1,0 +1,28 @@
+---
+import AdSlot from './AdSlot.astro';
+---
+
+<header class="bg-white border-b border-border">
+  <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2 no-underline">
+      <img src="/logs/logo-nexo.svg" alt="Nexo" width="32" height="32" />
+      <div>
+        <span class="text-lg font-bold text-secondary">Nexo</span>
+        <span class="text-lg font-medium text-primary ml-1">UVT</span>
+      </div>
+    </a>
+    <nav class="hidden sm:flex items-center gap-4">
+      <a
+        href="https://nexopos.cloution.cloud"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-sm text-text-muted hover:text-primary transition-colors"
+      >
+        NexoPos <span class="text-xs text-text-muted/60">by cloutionsas</span>
+      </a>
+    </nav>
+  </div>
+  <div class="max-w-5xl mx-auto px-4 pb-2">
+    <AdSlot slot_id="header-leaderboard" min_height="90px" />
+  </div>
+</header>

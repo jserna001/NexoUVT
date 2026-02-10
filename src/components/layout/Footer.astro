@@ -1,0 +1,65 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-secondary text-white mt-auto pb-16">
+  <div class="max-w-5xl mx-auto px-4 py-8">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="/logs/logo-nexo.svg" alt="Nexo" width="24" height="24" />
+        <span class="text-sm font-medium">Nexo &copy; {currentYear}</span>
+        <span class="text-gray-600">|</span>
+        <a href="https://cloutionsas.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 hover:opacity-80 transition-opacity">
+          <img src="/logs/logo-cloution.svg" alt="Cloution" width="20" height="20" />
+          <span class="text-xs text-gray-400">Cloution</span>
+        </a>
+      </div>
+      <div class="text-center sm:text-right">
+        <p class="text-xs text-gray-400 max-w-md">
+          Esta herramienta es de uso informativo. Los valores UVT se basan en
+          resoluciones oficiales de la DIAN. Consulte siempre con un profesional
+          contable para decisiones tributarias.
+        </p>
+      </div>
+    </div>
+    <div
+      class="mt-6 pt-4 border-t border-gray-700 flex flex-col sm:flex-row items-center justify-between gap-2"
+    >
+      <div class="flex flex-wrap gap-4 text-xs text-gray-400">
+        <a
+          href="https://nexocontable.cloution.cloud"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-primary transition-colors"
+        >
+          NexoContable
+        </a>
+        <a
+          href="https://nexopos.cloution.cloud"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-primary transition-colors"
+        >
+          NexoPos
+        </a>
+        <a
+          href="https://cloutionsas.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-primary transition-colors"
+        >
+          Cloution
+        </a>
+        <a
+          href="/privacidad"
+          class="hover:text-primary transition-colors"
+        >
+          Política de privacidad
+        </a>
+      </div>
+      <p class="text-xs text-gray-500">
+        Hecho con 💙 para contadores colombianos
+      </p>
+    </div>
+  </div>
+</footer>

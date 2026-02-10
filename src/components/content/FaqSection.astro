@@ -1,0 +1,64 @@
+---
+import { currentYear } from '../../data/uvt-config';
+import { formatCurrency } from '../../lib/format';
+
+const faqs = [
+  {
+    question: `¿Cuánto vale la UVT en ${currentYear.year}?`,
+    answer: `La UVT para ${currentYear.year} es de ${formatCurrency(currentYear.value)}, establecida mediante la ${currentYear.resolution}.`,
+  },
+  {
+    question: '¿Cómo convertir UVT a pesos colombianos?',
+    answer: `Para convertir UVT a pesos, multiplique la cantidad de UVT por el valor vigente. En ${currentYear.year}: UVT × ${formatCurrency(currentYear.value)}. Por ejemplo, 10 UVT = 10 × ${formatCurrency(currentYear.value)} = ${formatCurrency(10 * currentYear.value)}.`,
+  },
+  {
+    question: '¿Cómo convertir pesos a UVT?',
+    answer: `Para convertir pesos a UVT, divida el valor en pesos entre el valor de la UVT. En ${currentYear.year}: Pesos ÷ ${formatCurrency(currentYear.value)}. Por ejemplo, ${formatCurrency(1000000)} ÷ ${formatCurrency(currentYear.value)} = ${(1000000 / currentYear.value).toFixed(2)} UVT.`,
+  },
+  {
+    question: `¿Cuál es la sanción mínima de la DIAN en ${currentYear.year}?`,
+    answer: `La sanción mínima de la DIAN en ${currentYear.year} es de 10 UVT, equivalente a ${formatCurrency(10 * currentYear.value)} (Art. 639 del Estatuto Tributario). Ninguna sanción puede ser inferior a este valor.`,
+  },
+  {
+    question: `¿Quiénes deben declarar renta en ${currentYear.year}?`,
+    answer: `Deben declarar renta las personas naturales con ingresos brutos iguales o superiores a 1.400 UVT (${formatCurrency(1400 * currentYear.value)}), patrimonio bruto superior a 4.500 UVT (${formatCurrency(4500 * currentYear.value)}), compras superiores a 1.400 UVT, o consignaciones bancarias superiores a 1.400 UVT.`,
+  },
+  {
+    question: '¿Quién define el valor de la UVT?',
+    answer:
+      'La DIAN (Dirección de Impuestos y Aduanas Nacionales) establece anualmente el valor de la UVT mediante resolución, con base en la variación del Índice de Precios al Consumidor (IPC) certificado por el DANE.',
+  },
+];
+---
+
+<section class="space-y-4" id="preguntas-frecuentes">
+  <h2 class="text-2xl font-bold text-secondary">Preguntas frecuentes</h2>
+
+  <div class="space-y-2">
+    {
+      faqs.map((faq) => (
+        <details class="bg-white border border-border rounded-lg shadow-[var(--shadow-card)] group">
+          <summary class="px-5 py-4 cursor-pointer font-medium text-text hover:text-primary transition-colors list-none flex items-center justify-between">
+            <span>{faq.question}</span>
+            <svg
+              class="w-5 h-5 text-text-muted group-open:rotate-180 transition-transform flex-shrink-0 ml-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </summary>
+          <div class="px-5 pb-4 text-sm text-text-muted leading-relaxed border-t border-border pt-3">
+            {faq.answer}
+          </div>
+        </details>
+      ))
+    }
+  </div>
+</section>

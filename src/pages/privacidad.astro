@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import PrivacyPolicy from '../components/content/PrivacyPolicy.astro';
+import CookieBanner from '../components/layout/CookieBanner';
+---
+
+<BaseLayout
+  title="Política de Privacidad y Habeas Data | Nexo UVT"
+  description="Política de tratamiento de datos personales de Nexo UVT conforme a la Ley 1581 de 2012. Conozca sus derechos como titular de datos."
+>
+  <Header />
+
+  <main class="flex-1 pb-16">
+    <div class="max-w-3xl mx-auto px-4 py-8 sm:py-12">
+      <a
+        href="/"
+        class="inline-flex items-center gap-1 text-sm text-text-muted hover:text-primary transition-colors mb-6"
+      >
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5" />
+          <path d="M12 19l-7-7 7-7" />
+        </svg>
+        Volver al convertidor
+      </a>
+      <PrivacyPolicy />
+    </div>
+  </main>
+
+  <Footer />
+  <CookieBanner client:load />
+</BaseLayout>

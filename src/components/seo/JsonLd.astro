@@ -1,0 +1,93 @@
+---
+const webAppSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Convertidor UVT 2026 - Nexo',
+  description:
+    'Convierte UVT a Pesos colombianos y viceversa. Calculadora fiscal con alertas inteligentes para contadores.',
+  url: 'https://nexouvt.cloution.cloud',
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'Web',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'COP',
+  },
+  creator: {
+    '@type': 'Organization',
+    name: 'Nexo',
+    url: 'https://nexo.com.co',
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Cuánto vale la UVT en 2026?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'La UVT para el año 2026 es de $52.374 pesos colombianos, según la Resolución DIAN No. 000187 del 14 de noviembre de 2025.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cómo convertir UVT a pesos colombianos?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Para convertir UVT a pesos, multiplique la cantidad de UVT por el valor vigente. En 2026: UVT × $52.374. Por ejemplo, 10 UVT = 10 × $52.374 = $523.740.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cuál es la sanción mínima de la DIAN en 2026?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'La sanción mínima de la DIAN en 2026 es de 10 UVT, equivalente a $523.740 pesos colombianos (Art. 639 del Estatuto Tributario).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Quiénes deben declarar renta en 2026?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Deben declarar renta en 2026 las personas naturales con ingresos brutos iguales o superiores a 1.400 UVT ($73.323.600), patrimonio bruto superior a 4.500 UVT ($235.683.000), entre otros criterios.',
+      },
+    },
+  ],
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Nexo',
+      item: 'https://nexo.com.co',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Convertidor UVT 2026',
+      item: 'https://nexouvt.cloution.cloud',
+    },
+  ],
+};
+---
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(webAppSchema)}
+/>
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(faqSchema)}
+/>
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(breadcrumbSchema)}
+/>

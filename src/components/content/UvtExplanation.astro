@@ -1,0 +1,70 @@
+---
+import { currentYear } from '../../data/uvt-config';
+import { formatCurrency } from '../../lib/format';
+---
+
+<section class="space-y-4" id="que-es-uvt">
+  <h2 class="text-2xl font-bold text-secondary">
+    ¿Cuánto quedó la UVT en {currentYear.year}?
+  </h2>
+
+  <p class="text-text-muted leading-relaxed">
+    La <strong>Unidad de Valor Tributario (UVT)</strong> para el año
+    <strong>{currentYear.year}</strong> es de
+    <strong class="text-primary">{formatCurrency(currentYear.value)}</strong>,
+    según la {currentYear.resolution}.
+  </p>
+
+  <div
+    class="bg-white border border-border rounded-lg p-5 shadow-[var(--shadow-card)]"
+  >
+    <h3 class="font-semibold text-secondary mb-3">¿Qué es la UVT?</h3>
+    <p class="text-sm text-text-muted leading-relaxed">
+      La UVT (Unidad de Valor Tributario) es una medida de valor creada por la
+      DIAN que permite ajustar los valores tributarios de Colombia año tras año,
+      de acuerdo con la variación del Índice de Precios al Consumidor (IPC). Se
+      utiliza para expresar sanciones, topes, tarifas y demás conceptos fiscales
+      en el Estatuto Tributario.
+    </p>
+  </div>
+
+  <div
+    class="bg-white border border-border rounded-lg p-5 shadow-[var(--shadow-card)]"
+  >
+    <h3 class="font-semibold text-secondary mb-3">Historial valor UVT</h3>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-border">
+            <th class="text-left py-2 font-semibold text-text-muted">Año</th>
+            <th class="text-right py-2 font-semibold text-text-muted"
+              >Valor UVT</th
+            >
+            <th class="text-right py-2 font-semibold text-text-muted hidden sm:table-cell"
+              >Variación</th
+            >
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-border">
+            <td class="py-2 font-medium">2026</td>
+            <td class="py-2 text-right font-semibold text-primary"
+              >{formatCurrency(52374)}</td
+            >
+            <td class="py-2 text-right text-text-muted hidden sm:table-cell">+5,17%</td>
+          </tr>
+          <tr class="border-b border-border">
+            <td class="py-2 font-medium">2025</td>
+            <td class="py-2 text-right">{formatCurrency(49799)}</td>
+            <td class="py-2 text-right text-text-muted hidden sm:table-cell">+5,81%</td>
+          </tr>
+          <tr>
+            <td class="py-2 font-medium">2024</td>
+            <td class="py-2 text-right">{formatCurrency(47065)}</td>
+            <td class="py-2 text-right text-text-muted hidden sm:table-cell">+10,05%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

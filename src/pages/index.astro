@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import AdSlot from '../components/layout/AdSlot.astro';
+import UvtConverter from '../components/converter/UvtConverter';
+import UvtExplanation from '../components/content/UvtExplanation.astro';
+import SancionesTable from '../components/content/SancionesTable.astro';
+import TopesRenta from '../components/content/TopesRenta.astro';
+import FaqSection from '../components/content/FaqSection.astro';
+import LeadMagnetBanner from '../components/lead/LeadMagnetBanner';
+import CookieBanner from '../components/layout/CookieBanner';
+---
+
+<BaseLayout
+  title="Convertidor UVT 2026 a Pesos Colombianos | Nexo"
+  description="Convierte UVT a Pesos colombianos y viceversa. Calculadora fiscal 2026 con alertas inteligentes, tabla de sanciones y topes de renta. Herramienta gratuita para contadores."
+>
+  <Header />
+
+  <main class="flex-1 pb-16">
+    <!-- Converter Section -->
+    <section class="max-w-2xl mx-auto px-4 py-8 sm:py-12">
+      <UvtConverter client:load />
+    </section>
+
+    <!-- SEO Content Sections -->
+    <div class="max-w-5xl mx-auto px-4 space-y-12 pb-12">
+      <UvtExplanation />
+
+      <SancionesTable />
+
+      <AdSlot slot_id="content-mid" min_height="250px" />
+
+      <TopesRenta />
+
+      <FaqSection />
+    </div>
+  </main>
+
+  <Footer />
+
+  <CookieBanner client:load />
+  <LeadMagnetBanner client:visible />
+</BaseLayout>

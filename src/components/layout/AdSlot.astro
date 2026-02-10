@@ -1,0 +1,17 @@
+---
+interface Props {
+  slot_id: string;
+  min_height?: string;
+}
+
+const { slot_id, min_height = '100px' } = Astro.props;
+---
+
+<div
+  class="ad-slot bg-surface-alt border border-border rounded-md flex items-center justify-center text-text-muted text-xs"
+  data-ad-slot={slot_id}
+  style={`min-height: ${min_height};`}
+>
+  <!-- AdSense code goes here -->
+  <span class="opacity-50">Espacio publicitario</span>
+</div>

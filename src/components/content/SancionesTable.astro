@@ -1,0 +1,63 @@
+---
+import { sanciones2026 } from '../../data/sanciones-2026';
+import { formatCurrency } from '../../lib/format';
+import { currentYear } from '../../data/uvt-config';
+---
+
+<section class="space-y-4" id="sanciones">
+  <h2 class="text-2xl font-bold text-secondary">
+    Sanciones DIAN en UVT {currentYear.year}
+  </h2>
+  <p class="text-text-muted">
+    Tabla de sanciones tributarias más comunes expresadas en UVT y su equivalente
+    en pesos colombianos para {currentYear.year}.
+  </p>
+
+  <div
+    class="bg-white border border-border rounded-lg shadow-[var(--shadow-card)] overflow-hidden"
+  >
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-surface-alt border-b border-border">
+            <th class="text-left py-3 px-4 font-semibold text-text-muted"
+              >Concepto</th
+            >
+            <th class="text-right py-3 px-4 font-semibold text-text-muted"
+              >UVT</th
+            >
+            <th class="text-right py-3 px-4 font-semibold text-text-muted"
+              >Pesos {currentYear.year}</th
+            >
+            <th
+              class="text-right py-3 px-4 font-semibold text-text-muted hidden sm:table-cell"
+              >Norma</th
+            >
+          </tr>
+        </thead>
+        <tbody>
+          {
+            sanciones2026.map((s, i) => (
+              <tr
+                class={
+                  i < sanciones2026.length - 1
+                    ? 'border-b border-border'
+                    : ''
+                }
+              >
+                <td class="py-3 px-4 text-text">{s.concepto}</td>
+                <td class="py-3 px-4 text-right font-medium">{s.uvt}</td>
+                <td class="py-3 px-4 text-right font-semibold text-primary">
+                  {formatCurrency(s.uvt * currentYear.value)}
+                </td>
+                <td class="py-3 px-4 text-right text-text-muted text-xs hidden sm:table-cell">
+                  {s.norma}
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

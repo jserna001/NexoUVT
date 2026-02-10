@@ -1,0 +1,40 @@
+---
+import { topesRenta2026 } from '../../data/topes-renta-2026';
+import { formatCurrency } from '../../lib/format';
+import { currentYear } from '../../data/uvt-config';
+---
+
+<section class="space-y-4" id="topes-renta">
+  <h2 class="text-2xl font-bold text-secondary">
+    Topes para declarar renta {currentYear.year}
+  </h2>
+  <p class="text-text-muted">
+    Conozca los topes y umbrales que obligan a declarar renta en Colombia para
+    el año gravable {currentYear.year}.
+  </p>
+
+  <div class="grid gap-4 sm:grid-cols-2">
+    {
+      topesRenta2026.map((tope) => (
+        <div class="bg-white border border-border rounded-lg p-5 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-shadow">
+          <div class="flex items-start justify-between gap-3">
+            <div class="space-y-2">
+              <h3 class="font-semibold text-secondary">{tope.concepto}</h3>
+              <p class="text-xs text-text-muted leading-relaxed">
+                {tope.descripcion}
+              </p>
+            </div>
+          </div>
+          <div class="mt-3 pt-3 border-t border-border flex items-baseline justify-between">
+            <span class="text-sm text-text-muted">
+              {tope.uvt.toLocaleString('es-CO')} UVT
+            </span>
+            <span class="text-lg font-bold text-primary">
+              {formatCurrency(tope.uvt * currentYear.value)}
+            </span>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
